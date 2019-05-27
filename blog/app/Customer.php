@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Faker\Provider\ar_JO\Company;
 
 class Customer extends Model
 {
@@ -14,5 +15,8 @@ class Customer extends Model
 
     public function scopeInactive($query){
         return $query->where('active', 0);
+    }
+    public function company(){
+        return $this ->belongsTo(Company::class);
     }
 }
