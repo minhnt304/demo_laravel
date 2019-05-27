@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\mydemoapp;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,9 +13,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('header');
 });
 
-Auth::routes();
+route::view('about','about');
+route::view('test', 'navbar.test');
+route::get('customers', 'CustomerController@list');
 
-Route::get('/home', 'HomeController@index')->name('home');
+route::post('customers', 'CustomerController@store');
